@@ -12,7 +12,7 @@ end
 
 while true do
     task.wait(0.5)
-    
+
     local bossFound = false
     for _, v in pairs(workspace:GetChildren()) do
         if v:IsA("Model") and v:FindFirstChild("Humanoid") then
@@ -23,22 +23,22 @@ while true do
             end
         end
     end
-    
+
     if bossFound then
         pressKey(Enum.KeyCode.Q, 0.5)
         task.wait(0.3)
-        
+
         for i = 1, 3 do
             pressKey(Enum.KeyCode.E, 0.2)
             task.wait(0.2)
         end
-        
+
         local dirs = {Enum.KeyCode.W, Enum.KeyCode.A, Enum.KeyCode.S, Enum.KeyCode.D}
         local dodgeDir = dirs[math.random(1, 4)]
         pressKey(Enum.KeyCode.LeftShift, 0.1)
         pressKey(dodgeDir, 0.2)
     end
-    
+
     local lootUI = player.PlayerGui:FindFirstChild("LootUI")
     if lootUI and lootUI.Visible then
         task.wait(2)
